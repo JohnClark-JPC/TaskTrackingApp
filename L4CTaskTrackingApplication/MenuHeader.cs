@@ -13,7 +13,7 @@ namespace L4CTaskTrackingApplication
             Console.WriteLine(@"
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                           //
-//                                     ARMAGEDDON IT!                                        //
+//                                       ARMAGEDDON IT!                                      //
 //                                                                                           //
 //                                1. Add a new task                                          //
 //                                2. Mark task complete                                      //

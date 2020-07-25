@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
@@ -75,30 +76,56 @@ namespace L4CTaskTrackingApplication
             else
             {
                 Console.WriteLine("//                                                                                           //");
-                string taskList = "Have You Every Needed Someone So Bad?";
+                string taskList = "Have You Ever Needed Someone So Bad?";
                 Console.Write("//");
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.Write(taskList.PadLeft(65));
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.Write(taskList.PadLeft(62));
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("                          //");
                 Console.WriteLine("//                                                                                           //");
                 Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////");
+                Console.WriteLine("//                                                                                           //");
+                string taskListTitle = "TASK LIST";
+                Console.Write("//");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write(taskListTitle.PadLeft(51));
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("                                        //");
+                Console.WriteLine("//                                                                                           //");
                 foreach (string i in toDo)
                 {
                     int taskNumber = toDo.IndexOf(i) + 1;
-                    Console.WriteLine(taskNumber + ($".) {i}"));
+                    Console.WriteLine("//          " + taskNumber + ($".) {i}"));
+                    
                 }
+                Console.WriteLine();
+                Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("Enter menu number: ");
+                Console.ForegroundColor = ConsoleColor.White;
+
             }
 
-            //highlight the current task
-            int currentTask = toDo.First;
+
         }
+
+        //public static void CurrentTask()
+        //{
+        //    //highlight the current task
+        //    int currentTask = 0;
+        //    Console.WriteLine("This is where item get highlighted.");
+        //    Console.WriteLine(toDo[currentTask]);
+        //    currentTask++;
+        //    DisplayTaskList();
+        //    }
+        //}
 
         private static void AddTask()
         {
 
-            Console.WriteLine("Enter your new task:");
+            Console.Write("Enter your new task: ");
             toDo.Add(Console.ReadLine());
+            DisplayTaskList();
             //TODO if task already exists (cw == any list item), move task to the end of the list.
         }
 
