@@ -8,6 +8,7 @@ namespace L4CTaskTrackingApplication
     {
         public static void signOff()
         {
+            //TODO make these into def leppard font, 3 screens with delay.
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.White;

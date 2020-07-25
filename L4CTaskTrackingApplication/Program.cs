@@ -67,11 +67,20 @@ namespace L4CTaskTrackingApplication
                 Console.WriteLine("\nYou don't have any tasks to do. Let's Get Rocked!");
                 Console.ForegroundColor = ConsoleColor.White;
             }
+
+            // how to pad left to center taskList string with // on either side?
             else
             {
+                Console.Write("//");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                string taskList = "Have You Every Needed Someone So Bad?";
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(taskList.PadLeft(20));
+                Console.WriteLine();
                 foreach (string i in toDo)
                 {
-                    Console.WriteLine(i);
+                    int taskNumber = toDo.IndexOf(i) + 1;
+                    Console.WriteLine(taskNumber + ($".) {i}"));
                 }
             }
         }
