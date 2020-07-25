@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace L4CTaskTrackingApplication
 {
@@ -64,25 +66,32 @@ namespace L4CTaskTrackingApplication
             if (toDo.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("\nYou don't have any tasks to do. Let's Get Rocked!");
+                string noTasks = "You don't have any tasks to do. Let's Get Rocked!";
+                Console.WriteLine();
+                Console.WriteLine(noTasks.PadLeft(70));
                 Console.ForegroundColor = ConsoleColor.White;
             }
 
-            // how to pad left to center taskList string with // on either side?
             else
             {
+                Console.WriteLine("//                                                                                           //");
+                string taskList = "Have You Every Needed Someone So Bad?";
                 Console.Write("//");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                string taskList = "Have You Every Needed Someone So Bad?";
+                Console.Write(taskList.PadLeft(65));
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine(taskList.PadLeft(20));
-                Console.WriteLine();
+                Console.WriteLine("                          //");
+                Console.WriteLine("//                                                                                           //");
+                Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////");
                 foreach (string i in toDo)
                 {
                     int taskNumber = toDo.IndexOf(i) + 1;
                     Console.WriteLine(taskNumber + ($".) {i}"));
                 }
             }
+
+            //highlight the current task
+            int currentTask = toDo.First;
         }
 
         private static void AddTask()
@@ -90,6 +99,7 @@ namespace L4CTaskTrackingApplication
 
             Console.WriteLine("Enter your new task:");
             toDo.Add(Console.ReadLine());
+            //TODO if task already exists (cw == any list item), move task to the end of the list.
         }
 
         private static void MarkTaskComplete()
