@@ -75,8 +75,9 @@ namespace L4CTaskTrackingApplication
             ");
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            System.Threading.Thread.Sleep(3000);
-            Menus.MainMenu();
+            System.Threading.Thread.Sleep(5000);
+            Console.Clear();
+            Program.MainMenu();
         }
     }
 }

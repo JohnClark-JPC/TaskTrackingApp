@@ -9,17 +9,15 @@ namespace L4CTaskTrackingApplication
         public static void signOff()
         {
             Console.Clear();
-            Console.BackgroundColor = ConsoleColor.Red;
+            Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(0, 2);
-            Console.WriteLine("Alright, I got somethin to say");
-            System.Threading.Thread.Sleep(1000);
-            Console.Clear();
+            Console.WriteLine("Alright, I got something to say");
+            System.Threading.Thread.Sleep(2000);
             Console.WriteLine("It's better to burn out");
-            System.Threading.Thread.Sleep(1000);
-            Console.Clear();
+            System.Threading.Thread.Sleep(2000);
             Console.WriteLine("Than fade away!");
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(2000);
+            Environment.Exit(0);
         }
     }
 }
