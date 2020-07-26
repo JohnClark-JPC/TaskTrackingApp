@@ -15,11 +15,31 @@ namespace L4CTaskTrackingApplication
 //                                                                                           //
 //                                       ARMAGEDDON IT!                                      //
 //                                                                                           //
-//                            1. Add a new task                                              //
-//                            2. Mark highlighted task complete                              //
-//                            3. Mark highlighted task partially complete                    //
-//                            4. Skip highlighted task for now                               //
+//                            1. Action the task                                             //
+//                            2. Cross out task, Let's not do this now                       //
+//                            3. Skip highlighted task for now                               //
+//                            4. Add new task                                                //
 //                            5. Exit                                                        //
+//                                                                                           //
+///////////////////////////////////////////////////////////////////////////////////////////////");
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public static void subMenuHeader()
+        {
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(@"
+///////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                           //
+//                                       ARMAGEDDON IT!                                      //
+//                                                                                           //
+//                            1. Mark task complete                                          //
+//                            2. Mark task incomplete                                        //
+//                            3. Add new task                                                //
+//                            4. Exit program                                                //
 //                                                                                           //
 ///////////////////////////////////////////////////////////////////////////////////////////////");
 

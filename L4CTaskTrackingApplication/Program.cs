@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Tracing;
@@ -41,16 +42,16 @@ namespace L4CTaskTrackingApplication
             switch (Console.ReadLine())
             {
                 case "1":
-                    AddTask();
+                    ActionTheTask.actionTheTask();
                     return true;
                 case "2":
-                    MarkTaskComplete();
+                    CrossOut();
                     return true;
                 case "3":
-                    MarkTaskPartiallyComplete();
+                    SkipTask();
                     return true;
                 case "4":
-                    SkipTask();
+                    AddTask();
                     return true;
                 case "5":
                     Outro.signOff();
@@ -75,6 +76,7 @@ namespace L4CTaskTrackingApplication
                 Console.WriteLine();
                 Console.WriteLine(noTasks.PadLeft(70));
                 Console.ForegroundColor = ConsoleColor.White;
+                MenuGraphics.menuFooter();
             }
 
             else
@@ -104,7 +106,42 @@ namespace L4CTaskTrackingApplication
             }
         }
 
-        private static void AddTask()
+        //TODO marktaskcomplete is causing problems
+        private static void CrossOut()
+        {
+            if(toDo.Count == 0)
+            {
+                DisplayTaskList();
+            }
+            else
+            {
+                Console.WriteLine("MarkTaskComplete");
+                toDo.RemoveAt(listIndexValue);
+                DisplayTaskList();
+                //Console.ReadLine();
+            }
+
+        }
+
+        private static void SkipTask()
+        {
+            if(toDo.Count == 0)
+            {
+                DisplayTaskList();
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Let It Go!");
+                listIndexValue++;
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine();
+                Console.WriteLine("Press 'enter' to continue.");
+                Console.ReadLine();
+            }
+
+        }
+        public static void AddTask()
         {
 
             Console.Write("Enter new task: ");
@@ -113,31 +150,12 @@ namespace L4CTaskTrackingApplication
             //TODO if task already exists (cw == any list item), move task to the end of the list.
         }
 
-        private static void MarkTaskComplete()
+        private static void CompleteTheTask()
         {
-            Console.WriteLine("MarkTaskComplete");
-            toDo.RemoveAt(listIndexValue);
+            Console.WriteLine("lets complete the task");
+            Console.ReadLine();
             DisplayTaskList();
-            //Console.ReadLine();
         }
-
-        private static void MarkTaskPartiallyComplete()
-        {
-            Console.WriteLine("MarkTaskPartiallyComplete");
-            Console.ReadLine();
-        }
-
-        private static void SkipTask()
-        {
-            Console.WriteLine();
-            Console.WriteLine("Let It Go!");
-            listIndexValue++;
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine();
-            Console.WriteLine("Press 'enter' to continue.");
-            Console.ReadLine();
-        }
-
         public static void CurrentTask()
         {
             //highlight the current task
