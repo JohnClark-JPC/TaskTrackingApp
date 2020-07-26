@@ -35,7 +35,7 @@ namespace L4CTaskTrackingApplication
         public static bool MainMenu()
         {
             Console.Clear();
-            MenuHeader.menuHeader();
+            MenuGraphics.menuHeader();
             DisplayTaskList();
 
             switch (Console.ReadLine())
@@ -79,7 +79,7 @@ namespace L4CTaskTrackingApplication
 
             else
             {
-                PrintTaskList();
+                MenuGraphics.PrintTaskList();
                 foreach (string i in toDo)
                 {
                     int taskNumber = toDo.IndexOf(i) + 1;
@@ -100,7 +100,7 @@ namespace L4CTaskTrackingApplication
                         Console.WriteLine();
                     }
                 }
-                MenuFooter.menuFooter();
+                MenuGraphics.menuFooter();
             }
         }
 
@@ -129,8 +129,12 @@ namespace L4CTaskTrackingApplication
 
         private static void SkipTask()
         {
-            Console.WriteLine("SkipTask. Let It Go!");
+            Console.WriteLine();
+            Console.WriteLine("Let It Go!");
             listIndexValue++;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine();
+            Console.WriteLine("Press 'enter' to continue.");
             Console.ReadLine();
         }
 
@@ -143,26 +147,7 @@ namespace L4CTaskTrackingApplication
             currentTask++;
             DisplayTaskList();
         }
-        public static void PrintTaskList()
-        {
-            Console.WriteLine("//                                                                                           //");
-            string taskList = "Have You Ever Needed Someone So Bad?";
-            Console.Write("//");
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write(taskList.PadLeft(62));
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                             //");
-            Console.WriteLine("//                                                                                           //");
-            Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////");
-            Console.WriteLine("//                                                                                           //");
-            string taskListTitle = "TASK LIST";
-            Console.Write("//");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write(taskListTitle.PadLeft(51));
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                                        //");
-            Console.WriteLine("//                                                                                           //");
-        }
+
     }
 }
 
