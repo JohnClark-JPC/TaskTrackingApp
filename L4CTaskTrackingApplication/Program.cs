@@ -67,7 +67,7 @@ namespace L4CTaskTrackingApplication
         public static void DisplayTaskList()
 
         {
-        
+
             if (toDo.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -94,21 +94,13 @@ namespace L4CTaskTrackingApplication
                         Console.WriteLine();
                     }
                     else
-                    { 
+                    {
                         Console.Write("//          ");
                         Console.Write(taskNumber + ($".) {i}"));
                         Console.WriteLine();
                     }
                 }
-                Console.WriteLine("//                                                                                           //");
-                Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine();
-                Console.Write("Make a menu selection: ");
-                Console.ForegroundColor = ConsoleColor.White;
-
-
-
+                MenuFooter.menuFooter();
             }
         }
 
