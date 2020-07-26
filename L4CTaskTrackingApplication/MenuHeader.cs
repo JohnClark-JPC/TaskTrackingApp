@@ -16,9 +16,9 @@ namespace L4CTaskTrackingApplication
 //                                       ARMAGEDDON IT!                                      //
 //                                                                                           //
 //                                1. Add a new task                                          //
-//                                2. Mark task complete                                      //
-//                                3. Mark task partially complete                            //
-//                                4. Skip this task for now                                  //
+//                                2. Mark highlighted task complete                          //
+//                                3. Mark highlighted task partially complete                //
+//                                4. Skip highlighted task for now                           //
 //                                5. Exit                                                    //
 //                                                                                           //
 ///////////////////////////////////////////////////////////////////////////////////////////////");
