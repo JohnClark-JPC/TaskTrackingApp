@@ -33,6 +33,10 @@ namespace L4CTaskTrackingApplication
             }
         }
 
+        public static List<string> toDo = new List<string>();
+
+        public static int listIndexValue = 0;
+
         public static bool MainMenu()
         {
             Console.Clear();
@@ -60,10 +64,6 @@ namespace L4CTaskTrackingApplication
                     return true;
             }
         }
-
-        public static List<string> toDo = new List<string>();
-
-        public static int listIndexValue = 0;
 
         public static void DisplayTaskList()
 
@@ -106,21 +106,12 @@ namespace L4CTaskTrackingApplication
             }
         }
 
-        //TODO marktaskcomplete is causing problems
         private static void CrossOut()
         {
-            if(toDo.Count == 0)
-            {
-                DisplayTaskList();
-            }
-            else
-            {
-                Console.WriteLine("MarkTaskComplete");
+                Console.WriteLine("Remove task from list");
                 toDo.RemoveAt(listIndexValue);
                 DisplayTaskList();
                 //Console.ReadLine();
-            }
-
         }
 
         private static void SkipTask()
@@ -141,6 +132,7 @@ namespace L4CTaskTrackingApplication
             }
 
         }
+
         public static void AddTask()
         {
 
@@ -156,6 +148,7 @@ namespace L4CTaskTrackingApplication
             Console.ReadLine();
             DisplayTaskList();
         }
+
         public static void CurrentTask()
         {
             //highlight the current task
@@ -165,7 +158,6 @@ namespace L4CTaskTrackingApplication
             currentTask++;
             DisplayTaskList();
         }
-
     }
 }
 

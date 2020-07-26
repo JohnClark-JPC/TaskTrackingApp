@@ -23,6 +23,9 @@ namespace L4CTaskTrackingApplication
                 case "3":
                     Program.AddTask();
                     break;
+                case "4":
+                    Outro.signOff();
+                    break;
             }
         }
 

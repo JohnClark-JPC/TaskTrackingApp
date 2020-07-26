@@ -15,8 +15,8 @@ namespace L4CTaskTrackingApplication
 //                                                                                           //
 //                                       ARMAGEDDON IT!                                      //
 //                                                                                           //
-//                            1. Action the task                                             //
-//                            2. Cross out task, Let's not do this now                       //
+//                            1. Update status of the highlighted task                       //
+//                            2. Cross out task. Let's not do this now. Or ever.             //
 //                            3. Skip highlighted task for now                               //
 //                            4. Add new task                                                //
 //                            5. Exit                                                        //
@@ -34,7 +34,7 @@ namespace L4CTaskTrackingApplication
             Console.WriteLine(@"
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                           //
-//                                       ARMAGEDDON IT!                                      //
+//                                       ROCK! ROCK!                                         //
 //                                                                                           //
 //                            1. Mark task complete                                          //
 //                            2. Mark task incomplete                                        //
