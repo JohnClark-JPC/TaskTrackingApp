@@ -69,27 +69,29 @@ namespace L4CTaskTrackingApplication
         {
             if (toDo.Count == 0)
             {
+                Console.WriteLine("//                                                                                           //");
+                Console.Write("//");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 string noTasks = "You don't have any tasks to do. Let's Get Rocked!";
-                Console.WriteLine();
-                Console.WriteLine(noTasks.PadLeft(70));
+                Console.Write(noTasks.PadLeft(70));
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("                     //");
                 MenuGraphics.menuFooter();
             }
 
             else
             {
                 MenuGraphics.PrintTaskList();
-                foreach (string i in toDo)
+                foreach (string listString in toDo)
                 {
-                    int taskNumber = toDo.IndexOf(i) + 1;
+                    int currentTaskNumber = toDo.IndexOf(listString) + 1;
 
-                    if (listIndexValue == toDo.IndexOf(i))
+                    if (listIndexValue == toDo.IndexOf(listString))
                     {
                         Console.Write("//          ");
                         Console.BackgroundColor = ConsoleColor.DarkYellow;
                         Console.ForegroundColor = ConsoleColor.Black;
-                        Console.Write(taskNumber + ($".) {i}"));
+                        Console.Write(currentTaskNumber + ($".) {listString}"));
                         Console.BackgroundColor = ConsoleColor.Black;
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine();
@@ -97,7 +99,7 @@ namespace L4CTaskTrackingApplication
                     else
                     {
                         Console.Write("//          ");
-                        Console.Write(taskNumber + ($".) {i}"));
+                        Console.Write(currentTaskNumber + ($".) {listString}"));
                         Console.WriteLine();
                     }
                 }
@@ -146,10 +148,9 @@ namespace L4CTaskTrackingApplication
             //TODO check list for items marked in CompleteTheTask. If no unactioned items before it, remove from list.
             //TODO check list for items marked 
         {
-            Console.WriteLine("This is the end of the list actions");
+            listIndexValue = 0;
             Console.ReadLine();
             DisplayTaskList();
-            //
         }
     }
 }

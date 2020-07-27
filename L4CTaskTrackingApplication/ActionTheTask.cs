@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace L4CTaskTrackingApplication
@@ -34,9 +35,12 @@ namespace L4CTaskTrackingApplication
 
         public static void CompleteTheTask()
         {
-            Console.WriteLine("Mark the task complete here");
+            //Console.WriteLine("Mark the task complete here");
             //cw append string with **COMPLETED** + turn text grey;
-
+            string current = Program.toDo[Program.listIndexValue];
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.WriteLine(current);
+            Console.BackgroundColor = ConsoleColor.Black;
             Program.listIndexValue++;
             Console.ReadLine();
         }

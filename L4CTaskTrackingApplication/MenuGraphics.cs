@@ -82,12 +82,12 @@ namespace L4CTaskTrackingApplication
             Console.WriteLine("//                                                                                           //");
             Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////");
             Console.WriteLine("//                                                                                           //");
-            string taskListTitle = "TASK LIST";
+            string taskListTitle = "GET STUFF DONE!";
             Console.Write("//");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write(taskListTitle.PadLeft(50));
+            Console.Write(taskListTitle.PadLeft(54));
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                                         //");
+            Console.WriteLine("                                     //");
             Console.WriteLine("//                                                                                           //");
         }
     }
