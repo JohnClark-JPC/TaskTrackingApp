@@ -51,36 +51,36 @@ namespace L4CTaskTrackingApplication
         public static bool MainMenu()
         {
             Console.Clear();
+            MenuGraphics.menuHeader();
+            DisplayTaskList();
 
-            if (toDo.Count > 0)
+            switch (Console.ReadLine())
             {
-                MenuGraphics.menuHeader();
-                DisplayTaskList();
-
-                switch (Console.ReadLine())
-                {
-                    case "1":
-                        ActionTheTask.actionTheTask();
-                        return true;
-                    case "2":
-                        CrossOut();
-                        return true;
-                    case "3":
-                        SkipTask();
-                        return true;
-                    case "4":
-                        AddTask();
-                        return true;
-                    case "5":
-                        Outro.signOff();
-                        return false;
-                    default:
-                        return true;
-                }
+                case "1":
+                    ActionTheTask.actionTheTask();
+                    return true;
+                case "2":
+                    CrossOut();
+                    return true;
+                case "3":
+                    SkipTask();
+                    return true;
+                case "4":
+                    AddTask();
+                    return true;
+                case "5":
+                    Outro.signOff();
+                    return false;
+                default:
+                    return true;
             }
-            else
+        }
+
+        public static void DisplayTaskList()
+
+        {
+            if (toDo.Count == 0)
             {
-                MenuGraphics.limitedMenuHeader();
                 Console.WriteLine("//                                                                                           //");
                 Console.Write("//");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -89,59 +89,43 @@ namespace L4CTaskTrackingApplication
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("                     //");
                 MenuGraphics.menuFooter();
-
-                switch (Console.ReadLine())
-                {
-                    case "1":
-                        AddTask();
-                        return true;
-                    case "2":
-                        Outro.signOff();
-                        return false; 
-                    default:
-                        return true;
-                }
             }
-        }
 
-        public static void DisplayTaskList()
-
-        {
-
-            MenuGraphics.PrintTaskList();
-            foreach (string listString in toDo)
-            {
-                int currentTaskNumber = toDo.IndexOf(listString) + 1;
-
-                if (listIndexValue == toDo.IndexOf(listString))
-                {
-                    Console.Write("//          ");
-                    Console.BackgroundColor = ConsoleColor.Yellow;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.Write(currentTaskNumber + ($".) {listString}"));
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine();
-                }
-
-                else
-                {
-                    Console.Write("//          ");
-                    Console.Write(currentTaskNumber + ($".) {listString}"));
-                    Console.WriteLine();
-                }
-
-            }
-            if (!actionMenu)
-            {
-                MenuGraphics.menuFooter();
-            }
             else
             {
-                MenuGraphics.subMenuFooter();
-            }
-            
+                MenuGraphics.PrintTaskList();
+                foreach (string listString in toDo)
+                {
+                    int currentTaskNumber = toDo.IndexOf(listString) + 1;
 
+                    if (listIndexValue == toDo.IndexOf(listString))
+                    {
+                        Console.Write("//          ");
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write(currentTaskNumber + ($".) {listString}"));
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine();
+                    }
+
+                    else
+                    {
+                        Console.Write("//          ");
+                        Console.Write(currentTaskNumber + ($".) {listString}"));
+                        Console.WriteLine();
+                    }
+
+                }
+                if (!actionMenu)
+                {
+                    MenuGraphics.menuFooter();
+                }
+                else
+                {
+                    MenuGraphics.subMenuFooter();
+                }
+            }
         }
 
         private static void CrossOut()
@@ -152,13 +136,21 @@ namespace L4CTaskTrackingApplication
 
         private static void SkipTask()
         {
+            Console.WriteLine();
+            Console.WriteLine("Let It Go!");
             if (listIndexValue == toDo.Count -1)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Press 'any key' to continue.");
+                Console.ReadLine();
                 EndOfTheList();
             }
             else
             {
                 listIndexValue++;
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Press 'any key' to continue.");
+                Console.ReadLine();
                 DisplayTaskList();
             }
         }

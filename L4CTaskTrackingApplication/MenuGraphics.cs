@@ -27,24 +27,6 @@ namespace L4CTaskTrackingApplication
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public static void limitedMenuHeader()
-        {
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(@"
-///////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                           //
-//                                       ARMAGEDDON IT!                                      //
-//                                                                                           //
-//                            1. Add new task                                                //
-//                            2. Exit                                                        //
-//                                                                                           //
-///////////////////////////////////////////////////////////////////////////////////////////////");
-
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
-        }
-
         public static void subMenuHeader()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
