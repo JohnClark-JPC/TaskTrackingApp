@@ -15,8 +15,8 @@ namespace L4CTaskTrackingApplication
 //                                                                                           //
 //                                       ARMAGEDDON IT!                                      //
 //                                                                                           //
-//                            1. Update status of the highlighted task                       //
-//                            2. Cross out task. Let's not do this now. Or ever.             //
+//                            1. Update status of highlighted task                           //
+//                            2. Remove highlighted task                                     //
 //                            3. Skip highlighted task for now                               //
 //                            4. Add new task                                                //
 //                            5. Exit                                                        //
@@ -28,6 +28,7 @@ namespace L4CTaskTrackingApplication
         }
 
         public static void subMenuHeader()
+            //TODO add reference to what task is being updated
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
@@ -37,9 +38,10 @@ namespace L4CTaskTrackingApplication
 //                                       ROCK! ROCK!                                         //
 //                                                                                           //
 //                            1. Mark task complete                                          //
-//                            2. Mark task incomplete                                        //
+//                            2. Did some stuff, but it ain't done yet!                      //
 //                            3. Add new task                                                //
-//                            4. Exit program                                                //
+//                            4. Return to main menu                                         //
+//                            5. Exit program                                                //
 //                                                                                           //
 ///////////////////////////////////////////////////////////////////////////////////////////////");
 
@@ -54,6 +56,17 @@ namespace L4CTaskTrackingApplication
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
             Console.Write("Make a menu selection: ");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public static void subMenuFooter()
+            //TODO implement submenufooter in the submenu.
+        {
+            Console.WriteLine("//                                                                                           //");
+            Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine();
+            Console.Write("Please listen closely as our menu options have changed. Make a menu selection: ");
             Console.ForegroundColor = ConsoleColor.White;
         }
 

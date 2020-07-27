@@ -24,6 +24,9 @@ namespace L4CTaskTrackingApplication
                     Program.AddTask();
                     break;
                 case "4":
+                    Program.MainMenu();
+                    break;
+                case "5":
                     Outro.signOff();
                     break;
             }
@@ -31,14 +34,17 @@ namespace L4CTaskTrackingApplication
 
         public static void CompleteTheTask()
         {
-            Console.WriteLine("complete the task here");
+            Console.WriteLine("Mark the task complete here");
+            //cw append string with **COMPLETED** + turn text grey;
             Console.ReadLine();
         }
 
         public static void IncompleteTask()
         {
-            Console.WriteLine("implement incomplete task here");
+            Console.WriteLine("Mark the task incomplete here");
+            //cw append string with **Almost there, keep at it!** + turn text grey;
+            //move task to the end of the list.
+            Console.ReadLine();
         }
-
     }
 }

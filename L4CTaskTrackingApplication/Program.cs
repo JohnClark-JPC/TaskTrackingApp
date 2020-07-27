@@ -85,6 +85,7 @@ namespace L4CTaskTrackingApplication
                 foreach (string i in toDo)
                 {
                     int taskNumber = toDo.IndexOf(i) + 1;
+
                     if (listIndexValue == toDo.IndexOf(i))
                     {
                         Console.Write("//          ");
@@ -108,55 +109,48 @@ namespace L4CTaskTrackingApplication
 
         private static void CrossOut()
         {
-                Console.WriteLine("Remove task from list");
-                toDo.RemoveAt(listIndexValue);
-                DisplayTaskList();
-                //Console.ReadLine();
+            toDo.RemoveAt(listIndexValue);
+            DisplayTaskList();
         }
 
         private static void SkipTask()
+            //TODO have to skip task twice at end of list to get to 1.) highlighted
         {
-            if(toDo.Count == 0)
+            Console.WriteLine();
+            Console.WriteLine("Let It Go!");
+            if (listIndexValue >= toDo.Count)
             {
+                listIndexValue = 0;
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Press 'any key' to continue.");
+                Console.ReadLine();
                 DisplayTaskList();
             }
             else
             {
-                Console.WriteLine();
-                Console.WriteLine("Let It Go!");
                 listIndexValue++;
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine();
-                Console.WriteLine("Press 'enter' to continue.");
+                Console.WriteLine("Press 'any key' to continue.");
                 Console.ReadLine();
+                DisplayTaskList();
             }
-
         }
 
         public static void AddTask()
+        //TODO add string comparison, if == remove first one, add it to the end of the list.
         {
-
             Console.Write("Enter new task: ");
-            toDo.Add(Console.ReadLine());
-            DisplayTaskList();
-            //TODO if task already exists (cw == any list item), move task to the end of the list.
-        }
-
-        private static void CompleteTheTask()
-        {
-            Console.WriteLine("lets complete the task");
-            Console.ReadLine();
+            string newTask = Console.ReadLine();
+            toDo.Add(newTask);
             DisplayTaskList();
         }
 
-        public static void CurrentTask()
+        public static void EndOfTheList()
+            //TODO check list for items marked in CompleteTheTask. If no unactioned items before it, remove from list.
+            //TODO check list for items marked 
         {
-            //highlight the current task
-            int currentTask = 0;
-            Console.WriteLine("This is where item get highlighted.");
-            Console.WriteLine(toDo[currentTask]);
-            currentTask++;
-            DisplayTaskList();
+            Console.WriteLine("This is the end of the list actions");
+            //
         }
     }
 }
