@@ -13,6 +13,7 @@ namespace L4CTaskTrackingApplication
 {
     class Program
     {
+        //TODO remove highlighted task should grey it out.  Then at end of list, check for previous action items.
         //TODO selecting 1. with no task does weird stuff.
         //TODO selecting 2. with no task exits program
         //TODO selecting 3. with no task writes the cw line
