@@ -43,6 +43,14 @@ namespace L4CTaskTrackingApplication
 
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("//                                                                                           //");
+            Console.Write("//");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            string noTasks = "You don't have any tasks to do. Let's Get Rocked!";
+            Console.Write(noTasks.PadLeft(70));
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("                     //");
+            MenuGraphics.menuFooter();
         }
 
         public static void subMenuHeader()
