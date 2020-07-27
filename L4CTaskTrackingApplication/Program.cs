@@ -7,11 +7,18 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace L4CTaskTrackingApplication
 {
     class Program
     {
+        //TODO selecting 1. with no task does weird stuff.
+        //TODO selecting 2. with no task exits program
+        //TODO selecting 3. with no task writes the cw line
+        //do any of these before adding a task and nothing gets highlighted
+        //TODO add some kind of checking for 1, 2, 3 if list.count == 0;
+
         static void Main(string[] args)
         {
             try
@@ -89,7 +96,7 @@ namespace L4CTaskTrackingApplication
                     if (listIndexValue == toDo.IndexOf(listString))
                     {
                         Console.Write("//          ");
-                        Console.BackgroundColor = ConsoleColor.DarkYellow;
+                        Console.BackgroundColor = ConsoleColor.Yellow;
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.Write(currentTaskNumber + ($".) {listString}"));
                         Console.BackgroundColor = ConsoleColor.Black;
@@ -102,6 +109,7 @@ namespace L4CTaskTrackingApplication
                         Console.Write(currentTaskNumber + ($".) {listString}"));
                         Console.WriteLine();
                     }
+
                 }
                 MenuGraphics.menuFooter();
             }
@@ -114,7 +122,6 @@ namespace L4CTaskTrackingApplication
         }
 
         private static void SkipTask()
-            //TODO have to skip task twice at end of list to get to 1.) highlighted
         {
             Console.WriteLine();
             Console.WriteLine("Let It Go!");
@@ -136,10 +143,10 @@ namespace L4CTaskTrackingApplication
         }
 
         public static void AddTask()
-            //TODO add string comparison, if == remove first one, add it to the end of the list.
         {
             Console.Write("Enter new task: ");
             string newTask = Console.ReadLine();
+            toDo.RemoveAll(u => u.Contains(newTask));
             toDo.Add(newTask);
             DisplayTaskList();
         }
@@ -149,7 +156,6 @@ namespace L4CTaskTrackingApplication
             //TODO check list for items marked 
         {
             listIndexValue = 0;
-            Console.ReadLine();
             DisplayTaskList();
         }
     }

@@ -12,6 +12,7 @@ namespace L4CTaskTrackingApplication
             Console.Clear();
             MenuGraphics.subMenuHeader();
             Program.DisplayTaskList();
+            MenuGraphics.subMenuFooter();
 
             switch (Console.ReadLine())
             {
@@ -46,11 +47,13 @@ namespace L4CTaskTrackingApplication
         }
 
         public static void IncompleteTask()
+            //TODO turn this thing grey!
         {
             Console.WriteLine("Mark the task incomplete here");
             //cw append string with **Almost there, keep at it!** + turn text grey;
             //move task to the end of the list.
             Console.ReadLine();
+            Program.MainMenu();
         }
     }
 }

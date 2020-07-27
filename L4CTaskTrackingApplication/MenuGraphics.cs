@@ -28,14 +28,13 @@ namespace L4CTaskTrackingApplication
         }
 
         public static void subMenuHeader()
-            //TODO add reference to what task is being updated
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(@"
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                           //
-//                                       ROCK! ROCK!                                         //
+//                                        ROCK! ROCK!                                        //
 //                                                                                           //
 //                            1. Mark task complete                                          //
 //                            2. Did some stuff, but it ain't done yet!                      //
@@ -85,9 +84,9 @@ namespace L4CTaskTrackingApplication
             string taskListTitle = "GET STUFF DONE!";
             Console.Write("//");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write(taskListTitle.PadLeft(54));
+            Console.Write(taskListTitle.PadLeft(53));
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("                                     //");
+            Console.WriteLine("                                      //");
             Console.WriteLine("//                                                                                           //");
         }
     }
