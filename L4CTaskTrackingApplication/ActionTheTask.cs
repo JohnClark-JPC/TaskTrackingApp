@@ -11,10 +11,10 @@ namespace L4CTaskTrackingApplication
     {
         public static void actionTheTask()
         {
+            Program.actionMenu = true;
             Console.Clear();
             MenuGraphics.subMenuHeader();
             Program.DisplayTaskList();
-            MenuGraphics.subMenuFooter();
 
             switch (Console.ReadLine())
             {
@@ -38,23 +38,22 @@ namespace L4CTaskTrackingApplication
 
         public static void CompleteTheTask()
         {
-            //Console.WriteLine("Mark the task complete here");
-            //cw append string with **COMPLETED** + turn text grey;
-            //appends string to have a space at the end.
             string current = Program.toDo[Program.listIndexValue];
-            current += " ** COMPLETE **";
+            current += " *COMPLETE!*";
             Program.toDo[Program.listIndexValue] = current;
             Program.listIndexValue++;
+            Program.actionMenu = false;
+            actionTheTask();
         }
 
         public static void IncompleteTask()
-            //TODO turn this thing grey!
         {
-            Console.WriteLine("Mark the task incomplete here");
-            //cw append string with **Almost there, keep at it!** + turn text grey;
-            //move task to the end of the list.
-            Console.ReadLine();
-            Program.MainMenu();
+            string current = Program.toDo[Program.listIndexValue];
+            current += " *In-Progress*";
+            Program.toDo[Program.listIndexValue] = current;
+            Program.listIndexValue++;
+            Program.actionMenu = false;
+            actionTheTask();
         }
     }
 }

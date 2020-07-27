@@ -19,6 +19,7 @@ namespace L4CTaskTrackingApplication
         //TODO selecting 3. with no task writes the cw line
         //do any of these before adding a task and nothing gets highlighted
         //TODO add some kind of checking for 1, 2, 3 if list.count == 0;
+        //TODO stretch add up/down arrow functionality to menu's
 
         static void Main(string[] args)
         {
@@ -43,6 +44,9 @@ namespace L4CTaskTrackingApplication
 
         public static List<string> toDo = new List<string>();
         public static int listIndexValue = 0;
+        public static bool actionMenu = false;
+        public static int currentTaskNumber;
+        public static string listString;
 
         public static bool MainMenu()
         {
@@ -104,6 +108,7 @@ namespace L4CTaskTrackingApplication
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine();
                     }
+
                     else
                     {
                         Console.Write("//          ");
@@ -112,7 +117,14 @@ namespace L4CTaskTrackingApplication
                     }
 
                 }
-                MenuGraphics.menuFooter();
+                if (!actionMenu)
+                {
+                    MenuGraphics.menuFooter();
+                }
+                else
+                {
+                    MenuGraphics.subMenuFooter();
+                }
             }
         }
 
@@ -153,8 +165,8 @@ namespace L4CTaskTrackingApplication
         }
 
         public static void EndOfTheList()
-            //TODO check list for items marked in CompleteTheTask. If no unactioned items before it, remove from list.
-            //TODO check list for items marked 
+        //TODO check list for items marked in CompleteTheTask. If no unactioned items before it, remove from list.
+        //TODO check list for items marked 
         {
             listIndexValue = 0;
             DisplayTaskList();
