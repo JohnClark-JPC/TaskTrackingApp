@@ -36,6 +36,8 @@ namespace L4CTaskTrackingApplication
         {
             Console.WriteLine("Mark the task complete here");
             //cw append string with **COMPLETED** + turn text grey;
+
+            Program.listIndexValue++;
             Console.ReadLine();
         }
 

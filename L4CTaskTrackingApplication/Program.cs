@@ -34,7 +34,6 @@ namespace L4CTaskTrackingApplication
         }
 
         public static List<string> toDo = new List<string>();
-
         public static int listIndexValue = 0;
 
         public static bool MainMenu()
@@ -68,7 +67,6 @@ namespace L4CTaskTrackingApplication
         public static void DisplayTaskList()
 
         {
-
             if (toDo.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -118,13 +116,12 @@ namespace L4CTaskTrackingApplication
         {
             Console.WriteLine();
             Console.WriteLine("Let It Go!");
-            if (listIndexValue >= toDo.Count)
+            if (listIndexValue == toDo.Count -1)
             {
-                listIndexValue = 0;
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Press 'any key' to continue.");
                 Console.ReadLine();
-                DisplayTaskList();
+                EndOfTheList();
             }
             else
             {
@@ -137,7 +134,7 @@ namespace L4CTaskTrackingApplication
         }
 
         public static void AddTask()
-        //TODO add string comparison, if == remove first one, add it to the end of the list.
+            //TODO add string comparison, if == remove first one, add it to the end of the list.
         {
             Console.Write("Enter new task: ");
             string newTask = Console.ReadLine();
@@ -150,6 +147,8 @@ namespace L4CTaskTrackingApplication
             //TODO check list for items marked 
         {
             Console.WriteLine("This is the end of the list actions");
+            Console.ReadLine();
+            DisplayTaskList();
             //
         }
     }
