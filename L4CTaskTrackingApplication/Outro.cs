@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Xml.Linq;
 
 namespace L4CTaskTrackingApplication
 {
@@ -10,6 +12,16 @@ namespace L4CTaskTrackingApplication
         //TODO make these into def leppard font, 4 screens with delay.
         public static void signOff()
         {
+            string fileName = @"C:\Users\clark\source\repos\TaskTrackingApp\L4CTaskTrackingApplication\savedData.txt";
+            using (StreamWriter writer = new StreamWriter(fileName))
+            {
+                foreach (string listString in Program.toDo)
+                {
+                    writer.WriteLine(listString);
+                }
+            }
+
+
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.White;

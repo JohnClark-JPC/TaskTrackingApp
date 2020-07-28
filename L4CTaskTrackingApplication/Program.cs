@@ -41,8 +41,6 @@ namespace L4CTaskTrackingApplication
         public static List<string> toDo = new List<string>();
         public static int listIndexValue = 0;
         public static bool actionMenu = false;
-        public static int currentTaskNumber;
-        public static string listString;
 
         public static bool MainMenu()
         {
@@ -134,7 +132,13 @@ namespace L4CTaskTrackingApplication
         private static void CrossOut()
         {
             toDo.RemoveAt(listIndexValue);
+            listIndexValue--;
             DisplayTaskList();
+
+            if (listIndexValue == toDo.Count - 1)
+            {
+                EndOfTheList();
+            }
         }
 
         private static void SkipTask()
