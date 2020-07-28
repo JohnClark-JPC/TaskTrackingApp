@@ -15,10 +15,10 @@ namespace L4CTaskTrackingApplication
 //                                                                                           //
 //                                       ARMAGEDDON IT!                                      //
 //                                                                                           //
-//                            1. Update status of highlighted task                           //
-//                            2. Remove highlighted task                                     //
-//                            3. Skip highlighted task for now                               //
-//                            4. Add new task                                                //
+//                            1. Add new task                                                //
+//                            2. Update status of highlighted task                           //
+//                            3. Remove highlighted task                                     //
+//                            4. Skip highlighted task for now                               //
 //                            5. Exit                                                        //
 //                                                                                           //
 ///////////////////////////////////////////////////////////////////////////////////////////////");
@@ -62,9 +62,9 @@ namespace L4CTaskTrackingApplication
 //                                                                                           //
 //                                        ROCK! ROCK!                                        //
 //                                                                                           //
-//                            1. Mark task complete                                          //
-//                            2. Did some stuff, but it ain't done yet!                      //
-//                            3. Add new task                                                //
+//                            1. Add new task                                                //
+//                            2. Mark task complete                                          //
+//                            3. Did some stuff, but it ain't done yet!                      //
 //                            4. Return to main menu                                         //
 //                            5. Exit program                                                //
 //                                                                                           //
@@ -85,7 +85,6 @@ namespace L4CTaskTrackingApplication
         }
 
         public static void subMenuFooter()
-        //TODO implement submenufooter in the submenu.
         {
             Console.WriteLine("//                                                                                           //");
             Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////");

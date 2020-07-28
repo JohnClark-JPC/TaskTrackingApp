@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace L4CTaskTrackingApplication
@@ -11,7 +12,7 @@ namespace L4CTaskTrackingApplication
     {
         public static void actionTheTask()
         {
-            Program.actionMenu = true;
+            //Program.actionMenu = true;
             Console.Clear();
             MenuGraphics.subMenuHeader();
             Program.DisplayTaskList();
@@ -19,13 +20,13 @@ namespace L4CTaskTrackingApplication
             switch (Console.ReadLine())
             {
                 case "1":
-                    CompleteTheTask();
+                    Program.AddTask();
                     break;
                 case "2":
-                    IncompleteTask();
+                    Program.CompleteTheTask();
                     break;
                 case "3":
-                    Program.AddTask();
+                    Program.IncompleteTask();
                     break;
                 case "4":
                     Program.MainMenu();
@@ -35,25 +36,8 @@ namespace L4CTaskTrackingApplication
                     break;
             }
         }
+        
 
-        public static void CompleteTheTask()
-        {
-            string current = Program.toDo[Program.listIndexValue];
-            current += " *COMPLETE!*";
-            Program.toDo[Program.listIndexValue] = current;
-            Program.listIndexValue++;
-            Program.actionMenu = false;
-            actionTheTask();
-        }
-
-        public static void IncompleteTask()
-        {
-            string current = Program.toDo[Program.listIndexValue];
-            current += " *In-Progress*";
-            Program.toDo[Program.listIndexValue] = current;
-            Program.listIndexValue++;
-            Program.actionMenu = false;
-            actionTheTask();
-        }
+        
     }
 }

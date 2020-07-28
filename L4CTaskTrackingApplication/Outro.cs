@@ -6,9 +6,10 @@ namespace L4CTaskTrackingApplication
 {
     class Outro
     {
+        //TODO add write state to txt file
+        //TODO make these into def leppard font, 4 screens with delay.
         public static void signOff()
         {
-            //TODO make these into def leppard font, 4 screens with delay.
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.White;

@@ -13,12 +13,8 @@ namespace L4CTaskTrackingApplication
 {
     class Program
     {
+        //TODO load state from txt file
         //TODO remove highlighted task should grey it out.  Then at end of list, check for previous action items.
-        //TODO selecting 1. with no task does weird stuff.
-        //TODO selecting 2. with no task exits program
-        //TODO selecting 3. with no task writes the cw line
-        //do any of these before adding a task and nothing gets highlighted
-        //TODO add some kind of checking for 1, 2, 3 if list.count == 0;
         //TODO stretch add up/down arrow functionality to menu's
 
         static void Main(string[] args)
@@ -60,22 +56,22 @@ namespace L4CTaskTrackingApplication
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        ActionTheTask.actionTheTask();
+                        AddTask();
                         return true;
                     case "2":
-                        CrossOut();
+                        ActionTheTask.actionTheTask();
                         return true;
                     case "3":
-                        SkipTask();
+                        CrossOut();
                         return true;
                     case "4":
-                        AddTask();
+                        SkipTask();
                         return true;
                     case "5":
                         Outro.signOff();
                         return false;
                     default:
-                        return true;
+                        return true;    
                 }
             }
             else
@@ -99,8 +95,8 @@ namespace L4CTaskTrackingApplication
         public static void DisplayTaskList()
 
         {
-
             MenuGraphics.PrintTaskList();
+
             foreach (string listString in toDo)
             {
                 int currentTaskNumber = toDo.IndexOf(listString) + 1;
@@ -122,18 +118,17 @@ namespace L4CTaskTrackingApplication
                     Console.Write(currentTaskNumber + ($".) {listString}"));
                     Console.WriteLine();
                 }
-
             }
+
             if (!actionMenu)
             {
                 MenuGraphics.menuFooter();
             }
+
             else
             {
                 MenuGraphics.subMenuFooter();
             }
-
-
         }
 
         private static void CrossOut()
@@ -164,9 +159,36 @@ namespace L4CTaskTrackingApplication
             DisplayTaskList();
         }
 
+        public static void CompleteTheTask()
+
+        {   
+            string current = toDo[listIndexValue];
+            current += " *COMPLETE!*";
+            toDo[listIndexValue] = current;
+            listIndexValue++;
+            DisplayTaskList();
+
+            if(toDo.Count == listIndexValue)
+            {
+                EndOfTheList();
+            }
+        }
+
+        public static void IncompleteTask()
+        {
+            string current = toDo[listIndexValue];
+            current += " *In-Progress*";
+            toDo[listIndexValue] = current;
+            listIndexValue++;
+            DisplayTaskList();
+
+            if (toDo.Count == listIndexValue)
+            {
+                EndOfTheList();
+            }
+        }
+
         public static void EndOfTheList()
-        //TODO check list for items marked in CompleteTheTask. If no unactioned items before it, remove from list.
-        //TODO check list for items marked 
         {
             listIndexValue = 0;
             DisplayTaskList();
