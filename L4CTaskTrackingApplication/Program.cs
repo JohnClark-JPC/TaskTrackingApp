@@ -13,6 +13,7 @@ namespace L4CTaskTrackingApplication
 {
     class Program
     {
+        //TODO remove highlighted task - last item doesnt recycle back to beginning of list
         //TODO remove highlighted task should grey it out.  Then at end of list, check for previous action items.
         //TODO only display 15 tasks on the screen
         //TODO stretch add up/down arrow functionality to menu's
@@ -38,8 +39,7 @@ namespace L4CTaskTrackingApplication
             }
         }
 
-        public static List<string> toDo = System.IO.File.ReadLines
-            (@"C:\Users\clark\source\repos\TaskTrackingApp\L4CTaskTrackingApplication\docs\savedData.txt").ToList();
+        public static List<string> toDo = System.IO.File.ReadLines(@"C:\Users\clark\source\repos\TaskTrackingApp\L4CTaskTrackingApplication\docs\savedData.txt").ToList();
         public static int listIndexValue = 0;
         public static bool actionMenu = false;
 
@@ -134,12 +134,12 @@ namespace L4CTaskTrackingApplication
         {
             toDo.RemoveAt(listIndexValue);
             listIndexValue--;
-            DisplayTaskList();
 
             if (listIndexValue == toDo.Count - 1)
             {
                 EndOfTheList();
             }
+            DisplayTaskList();
         }
 
         private static void SkipTask()
