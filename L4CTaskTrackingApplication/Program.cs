@@ -13,10 +13,11 @@ namespace L4CTaskTrackingApplication
 {
     class Program
     {
-        //TODO if you x out of program, doesnt save state.
+        //TODO remove highlighted task - last item doesnt recycle back to beginning of list
         //TODO remove highlighted task should grey it out.  Then at end of list, check for previous action items.
         //TODO only display 15 tasks on the screen
         //TODO add error handling to read txt file
+        //TODO when clear item from list, it crashes
         //TODO stretch add up/down arrow functionality to menu's
 
         static void Main(string[] args)
