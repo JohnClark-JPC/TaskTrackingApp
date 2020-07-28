@@ -13,8 +13,8 @@ namespace L4CTaskTrackingApplication
 {
     class Program
     {
-        //TODO load state from txt file
         //TODO remove highlighted task should grey it out.  Then at end of list, check for previous action items.
+        //TODO only display 15 tasks on the screen
         //TODO stretch add up/down arrow functionality to menu's
 
         static void Main(string[] args)
@@ -38,7 +38,8 @@ namespace L4CTaskTrackingApplication
             }
         }
 
-        public static List<string> toDo = new List<string>();
+        public static List<string> toDo = System.IO.File.ReadLines
+            (@"C:\Users\clark\source\repos\TaskTrackingApp\L4CTaskTrackingApplication\docs\savedData.txt").ToList();
         public static int listIndexValue = 0;
         public static bool actionMenu = false;
 

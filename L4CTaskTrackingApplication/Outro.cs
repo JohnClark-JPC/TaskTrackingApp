@@ -8,20 +8,32 @@ namespace L4CTaskTrackingApplication
 {
     class Outro
     {
-        //TODO add write state to txt file
         //TODO make these into def leppard font, 4 screens with delay.
         public static void signOff()
         {
-            string fileName = @"C:\Users\clark\source\repos\TaskTrackingApp\L4CTaskTrackingApplication\savedData.txt";
-            using (StreamWriter writer = new StreamWriter(fileName))
+            string fileName = @"C:\Users\clark\source\repos\TaskTrackingApp\L4CTaskTrackingApplication\docs\savedData.txt";
+            try
             {
-                foreach (string listString in Program.toDo)
+                using (StreamWriter writer = new StreamWriter(fileName))
                 {
-                    writer.WriteLine(listString);
+                    foreach (string listString in Program.toDo)
+                    {
+                        writer.WriteLine(listString);
+                    }
                 }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                Graphics();
+            }
 
-
+        }
+        public static void Graphics()
+        {
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.White;
