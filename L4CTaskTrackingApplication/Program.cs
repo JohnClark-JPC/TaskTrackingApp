@@ -13,11 +13,13 @@ namespace L4CTaskTrackingApplication
 {
     class Program
     {
-        //TODO if you x out of program, doesnt save state.
         //TODO remove highlighted task should grey it out.  Then at end of list, check for previous action items.
         //TODO only display 15 tasks on the screen
         //TODO add error handling to read txt file
+        //TODO if you x out of program, doesnt save state.
+        //TODO implement modulus operator for end of list checking. Sample code in EndOfList()
         //TODO stretch add up/down arrow functionality to menu's
+
 
         static void Main(string[] args)
         {
@@ -148,7 +150,6 @@ namespace L4CTaskTrackingApplication
             {
                 DisplayTaskList();
             }
-
         }
 
         private static void SkipTask()
@@ -207,6 +208,7 @@ namespace L4CTaskTrackingApplication
         {
             listIndexValue = 0;
             DisplayTaskList();
+            //counter = ++counter % taskList.Count;
         }
     }
 }
