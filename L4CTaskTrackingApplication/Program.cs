@@ -43,6 +43,7 @@ namespace L4CTaskTrackingApplication
         public static List<string> toDo = System.IO.File.ReadLines(@"C:\Users\clark\source\repos\TaskTrackingApp\L4CTaskTrackingApplication\docs\savedData.txt").ToList();
         public static int listIndexValue = 0;
         public static bool actionMenu = false;
+        public static string listString;
 
         public static bool MainMenu()
         {
@@ -109,6 +110,8 @@ namespace L4CTaskTrackingApplication
                     Console.Write(currentTaskNumber + ($".) {listString}"));
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
+                    string slashes = @"//";
+                    Console.Write(slashes.PadLeft(listString.Length - (listString.Length - 75)));
                     Console.WriteLine();
                 }
 
@@ -116,6 +119,8 @@ namespace L4CTaskTrackingApplication
                 {
                     Console.Write("//          ");
                     Console.Write(currentTaskNumber + ($".) {listString}"));
+                    string slashes = @"//";
+                    Console.Write(slashes.PadLeft(listString.Length - (listString.Length - 75)));
                     Console.WriteLine();
                 }
             }
@@ -135,13 +140,12 @@ namespace L4CTaskTrackingApplication
         {
             toDo.RemoveAt(listIndexValue);
 
-            if (listIndexValue == toDo.Count - 1)
+            if (listIndexValue >= toDo.Count - 1)
             {
                 EndOfTheList();
             }
             else
             {
-                listIndexValue++;
                 DisplayTaskList();
             }
 
@@ -165,7 +169,7 @@ namespace L4CTaskTrackingApplication
         {
             Console.Write("Enter new task: ");
             string newTask = Console.ReadLine();
-            toDo.RemoveAll(u => u.Contains(newTask));
+            toDo.RemoveAll(u => u.Equals(newTask));
             toDo.Add(newTask);
             DisplayTaskList();
         }

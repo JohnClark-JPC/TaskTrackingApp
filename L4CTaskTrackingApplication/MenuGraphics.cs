@@ -34,7 +34,7 @@ namespace L4CTaskTrackingApplication
             Console.WriteLine(@"
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                           //
-//                                       ARMAGEDDON IT!                                      //
+//                                     TWO STEPS BEHIND                                      //
 //                                                                                           //
 //                            1. Add new task                                                //
 //                            2. Exit                                                        //
@@ -60,7 +60,7 @@ namespace L4CTaskTrackingApplication
             Console.WriteLine(@"
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                           //
-//                                        ROCK! ROCK!                                        //
+//                                 ROCK ROCK TILL YOU DROP!                                  //
 //                                                                                           //
 //                            1. Add new task                                                //
 //                            2. Mark task complete                                          //
@@ -97,13 +97,14 @@ namespace L4CTaskTrackingApplication
         public static void PrintTaskList()
         {
             Console.WriteLine("//                                                                                           //");
-            string taskList = "Have You Ever Needed Someone So Bad?";
+            string taskList = "Have You Ever Needed Someone So Bad";
             Console.Write("//");
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.Write(taskList.PadLeft(63));
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("                            //");
             Console.WriteLine("//                                                                                           //");
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////");
             Console.WriteLine("//                                                                                           //");
             string taskListTitle = "GET STUFF DONE!";

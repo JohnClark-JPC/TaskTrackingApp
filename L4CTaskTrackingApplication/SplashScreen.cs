@@ -69,13 +69,14 @@ namespace L4CTaskTrackingApplication
         ///////////////////////////////////////////////////////////////////////////////////////////////
         //                                                                                           //
         //                                      © JPC Records                                        //
-        //                         ### Sweet dream, saccharine, loosen up ###                        //
+        //                       ---> Sweet dream, saccharine, loosen up <---                        //
         //                                                                                           //
         ///////////////////////////////////////////////////////////////////////////////////////////////
             ");
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            System.Threading.Thread.Sleep(5000);
+            Console.WriteLine("Press any key to continue. All I Want Is Everything");
+            Console.ReadLine();
             Console.Clear();
             Program.MainMenu();
         }
