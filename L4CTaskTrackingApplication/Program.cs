@@ -113,7 +113,7 @@ namespace L4CTaskTrackingApplication
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
                     string slashes = @"//";
-                    Console.Write(slashes.PadLeft(listString.Length - (listString.Length - 75)));
+                    Console.Write(slashes.PadLeft((79 - listString.Length)));
                     Console.WriteLine();
                 }
 
@@ -122,7 +122,7 @@ namespace L4CTaskTrackingApplication
                     Console.Write("//          ");
                     Console.Write(currentTaskNumber + ($".) {listString}"));
                     string slashes = @"//";
-                    Console.Write(slashes.PadLeft(listString.Length - (listString.Length - 75)));
+                    Console.Write(slashes.PadLeft((79 - listString.Length)));
                     Console.WriteLine();
                 }
             }
